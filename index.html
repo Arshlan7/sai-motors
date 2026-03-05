@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Motors | Premium Automotive Service</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23002e6d' d='M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V96c0-7.4-3.4-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16V102.6c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z'/></svg>">
+    <link rel="stylesheet" href="styles.css?v=1.4">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <i class="fas fa-wrench logo-icon"></i>
+                <span class="logo-text">SAI<span>MOTORS</span></span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links desktop-nav">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="javascript:void(0)" class="btn-primary" onclick="openModal()">Book Now</a></li>
+            </ul>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav">
+                <a href="javascript:void(0)" class="btn-primary mobile-book" onclick="openModal()">Book Now</a>
+                <button class="hamburger" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-text">SAI<span>MOTORS</span></span>
+            <button class="close-sidebar" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#services" onclick="toggleSidebar()">Services</a></li>
+            <li><a href="#about" onclick="toggleSidebar()">About</a></li>
+            <li><a href="#location" onclick="toggleSidebar()">Location</a></li>
+            <li><a href="#contact" onclick="toggleSidebar()">Contact</a></li>
+        </ul>
+    </div>
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <section class="hero">
+        <div class="hero-slides">
+            <div class="slide" style="background-image: url('car1.png');"></div>
+            <div class="slide" style="background-image: url('car2.png');"></div>
+            <div class="slide" style="background-image: url('car3.png');"></div>
+        </div>
+        <div class="overlay"></div>
+        <div class="container hero-content">
+            <h1>World-Class Service for Your Car</h1>
+            <p>Expert maintenance and repairs for all makes and models. Premium care for the road ahead.</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn-primary">Our Services</a>
+                <a href="javascript:void(0)" class="btn-outline" onclick="openModal()">Book Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="section-title">Book an Appointment</h2>
+            <form id="appointment-form" class="appointment-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="car-model">Car Make & Model</label>
+                        <input type="text" id="car-model" name="car-model" placeholder="e.g. Maruti Swift" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-type">Service Required</label>
+                        <select id="service-type" name="service-type" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="periodic">Periodic Maintenance</option>
+                            <option value="mechanical">Mechanical Repair</option>
+                            <option value="ac">AC & Climate Care</option>
+                            <option value="electrical">Battery & Electrical</option>
+                            <option value="painting">Painting and Denting</option>
+                            <option value="tyre">Tyre Services</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Details (Optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="How can we help you?"></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-full">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('bookingModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function (event) {
+            let modal = document.getElementById('bookingModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Mobile Sidebar Toggle
+        function toggleSidebar() {
+            let sidebar = document.getElementById('sidebar');
+            let overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+
+            if (sidebar.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Handle Booking Form Submission
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('appointment-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                let name = document.getElementById('name').value;
+                let phone = document.getElementById('phone').value;
+                let carModel = document.getElementById('car-model').value;
+                let serviceSelect = document.getElementById('service-type');
+                let serviceType = serviceSelect.options[serviceSelect.selectedIndex].text;
+                let message = document.getElementById('message').value || 'No additional details';
+
+                // Build WhatsApp message
+                let whatsappMessage = `🚗 *New Booking Request from Sai Motors Website*\n\n`;
+                whatsappMessage += `👤 *Name:* ${name}\n`;
+                whatsappMessage += `📞 *Phone:* ${phone}\n`;
+                whatsappMessage += `🚙 *Car:* ${carModel}\n`;
+                whatsappMessage += `🔧 *Service:* ${serviceType}\n`;
+                whatsappMessage += `📝 *Details:* ${message}`;
+
+                // Encode the message for URL
+                let encodedMessage = encodeURIComponent(whatsappMessage);
+
+                // WhatsApp number (without + sign)
+                let whatsappNumber = '919825505076';
+
+                // Create WhatsApp URL
+                let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+                // Close modal
+                closeModal();
+
+                // Open WhatsApp
+                window.open(whatsappURL, '_blank');
+
+                // Reset form
+                this.reset();
+            });
+        });
+    </script>
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Expert Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3>Periodic Maintenance</h3>
+                    <p>Comprehensive inspection and service to keep your car running smooth.</p>
+                    <a href="periodic-maintenance.html" class="learn-more"
+                        style="color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">View
+                        Details →</a>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-tools"></i></div>
+                    <h3>Mechanical Repair</h3>
+                    <p>Expert engine, transmission, and suspension diagnosis and repair.</p>
+                    <a href="mechanical-repair.html" class="learn-more"
+                        style="color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">View
+                        Details →</a>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-snowflake"></i></div>
+                    <h3>AC & Climate Care</h3>
+                    <p>Full air conditioning service including gas refill and cabin cleaning.</p>
+                    <a href="ac-climate-care.html" class="learn-more"
+                        style="color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">View
+                        Details →</a>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Battery & Electrical</h3>
+                    <p>Testing, charging, and replacement of high-quality genuine batteries.</p>
+                    <a href="battery-electrical.html" class="learn-more"
+                        style="color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">View
+                        Details →</a>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-spray-can"></i></div>
+                    <h3>Painting and Denting</h3>
+                    <p>High-quality finishing and expert dent removal to make your car look brand new.</p>
+                    <a href="painting-denting.html" class="learn-more"
+                        style="color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">View
+                        Details →</a>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-circle-notch"></i></div>
+                    <h3>Tyre Services</h3>
+                    <p>Wheel alignment, balancing, and tyre replacement for optimal grip.</p>
+                    <a href="tyre-services.html" class="learn-more"
+                        style="color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 10px; display: inline-block;">View
+                        Details →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="why-choose">
+        <div class="container flex-row">
+            <div class="text-content">
+                <h2>Why Choose Sai Motors?</h2>
+                <ul>
+                    <li><strong>Multi-Brand Expertise:</strong> We service all major car brands.</li>
+                    <li><strong>Genuine Parts:</strong> We only use high-quality spare parts.</li>
+                    <li><strong>Transparent Pricing:</strong> No hidden costs, only honest service.</li>
+                    <li><strong>Certified Technicians:</strong> Your car is in expert hands.</li>
+                </ul>
+            </div>
+            <div class="image-placeholder">
+                <div class="glass-box">
+                    <h3>15+ Years</h3>
+                    <p>Of Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="location">
+        <div class="container">
+            <h2 class="section-title">Visit Our Workshop</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14717.378943729813!2d72.4414343!3d22.7154563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395eeb0000000000%3A0x0!2sParshwanth%20complex%2C%20Dholka!5e0!3m2!1sen!2sin!4v1705841445678!5m2!1sen!2sin"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h3>SAI MOTORS</h3>
+                <p>Automotive Maintenance & Repair Center.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>📍 Shop number 07, Parshwanth complex, Dholka, Ahmedabad</p>
+                <p>📞 +91 9825505076</p>
+                <p>✉️ info@saimotors.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sai Motors. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919825505076?text=Hi%20Sai%20Motors,%20I'd%20like%20to%20book%20a%20service."
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+
+</html>

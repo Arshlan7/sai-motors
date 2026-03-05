@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyre Services | Sai Motors</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%23002e6d' d='M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V96c0-7.4-3.4-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16V102.6c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z'/></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .service-details {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .service-hero {
+            background: linear-gradient(rgba(0, 46, 109, 0.9), rgba(0, 46, 109, 0.9)), url('https://images.unsplash.com/photo-1578844541663-471244efd93f?auto=format&fit=crop&q=80&w=1920');
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .tabs-container {
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            border: none;
+            background: var(--light);
+            color: var(--primary);
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .check-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .check-list li i {
+            color: var(--accent);
+        }
+
+        .doorstep-banner {
+            background: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary) !important;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-white:hover {
+            background: var(--light);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+
+            .tab-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <i class="fas fa-wrench logo-icon"></i>
+                <span class="logo-text">SAI<span>MOTORS</span></span>
+            </a>
+            <ul class="nav-links desktop-nav">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="javascript:void(0)" class="btn-primary" onclick="openModal()">Book Now</a></li>
+            </ul>
+            <div class="mobile-nav">
+                <a href="javascript:void(0)" class="btn-primary mobile-book" onclick="openModal()">Book Now</a>
+                <button class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="service-hero">
+        <div class="container">
+            <h1>Tyre Services</h1>
+            <p>At SAI MOTORS, we provide complete tyre care services to ensure safe driving, better handling, and longer
+                tyre life.</p>
+        </div>
+    </section>
+
+    <section class="service-details">
+        <div class="container">
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="openTab(event, 'replacement')">🔧 Inspection &
+                        Replacement</button>
+                    <button class="tab-btn" onclick="openTab(event, 'alignment')">⚖️ Balancing & Alignment</button>
+                    <button class="tab-btn" onclick="openTab(event, 'rotation')">🛠 Rotation & Maintenance</button>
+                    <button class="tab-btn" onclick="openTab(event, 'common')">⚠️ Common Issues</button>
+                </div>
+
+                <div id="replacement" class="tab-content active">
+                    <h2>Tyre Inspection & Replacement</h2>
+                    <p>We help you choose and maintain the right tyres for your vehicle.</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle"></i> Tyre condition and tread depth inspection</li>
+                        <li><i class="fas fa-check-circle"></i> Tyre replacement and fitment</li>
+                        <li><i class="fas fa-check-circle"></i> Tubeless tyre repair</li>
+                        <li><i class="fas fa-check-circle"></i> Puncture repair</li>
+                    </ul>
+                </div>
+
+                <div id="alignment" class="tab-content">
+                    <h2>Wheel Balancing & Alignment</h2>
+                    <p>For smooth driving and even tyre wear.</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle"></i> Wheel balancing</li>
+                        <li><i class="fas fa-check-circle"></i> Wheel alignment support</li>
+                        <li><i class="fas fa-check-circle"></i> Steering vibration correction</li>
+                        <li><i class="fas fa-check-circle"></i> Uneven tyre wear diagnosis</li>
+                    </ul>
+                </div>
+
+                <div id="rotation" class="tab-content">
+                    <h2>Tyre Rotation & Maintenance</h2>
+                    <p>Extend tyre life and improve performance.</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle"></i> Tyre rotation</li>
+                        <li><i class="fas fa-check-circle"></i> Air pressure check & nitrogen filling</li>
+                        <li><i class="fas fa-check-circle"></i> Valve replacement</li>
+                        <li><i class="fas fa-check-circle"></i> Tyre wear pattern inspection</li>
+                    </ul>
+                </div>
+
+                <div id="common" class="tab-content">
+                    <h2>Common Tyre Problems We Fix</h2>
+                    <ul class="check-list">
+                        <li><i class="fas fa-exclamation-triangle"></i> Frequent punctures</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> Uneven or rapid tyre wear</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> Steering pull and vibrations</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> Low grip and poor handling</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="doorstep-banner">
+                <div class="doorstep-content">
+                    <h2>Door to Door Service Available! 🏠</h2>
+                    <p>Flat tyre? Wonky alignment? We'll pick up your car and return it with perfect tyres.</p>
+                </div>
+                <a href="javascript:void(0)" class="btn-white" onclick="openModal()">Book Tyre Service</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Structure (Common) -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="section-title">Book Service</h2>
+            <form id="appointment-form" class="appointment-form">
+                <input type="hidden" id="service-type" value="Tyre Services">
+                <div class="form-row">
+                    <div class="form-group"><label>Name</label><input type="text" id="name" required></div>
+                    <div class="form-group"><label>Phone</label><input type="tel" id="phone" required></div>
+                </div>
+                <div class="form-group"><label>Car Model</label><input type="text" id="car-model" required></div>
+                <div class="form-group"><label>Tyre Issues</label><textarea id="message" rows="4"></textarea></div>
+                <button type="submit" class="btn-primary w-full">Send to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h3>SAI MOTORS</h3>
+                <p>Automotive Maintenance & Repair Center.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>📍 Shop number 07, Parshwanth complex, Dholka, Ahmedabad</p>
+                <p>📞 +91 9825505076</p>
+                <p>✉️ info@saimotors.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sai Motors. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        function openModal() { document.getElementById('bookingModal').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+        function closeModal() { document.getElementById('bookingModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        document.getElementById('appointment-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            let msg = `🛞 *Tyre Service Request*\n\n👤 *Name:* ${document.getElementById('name').value}\n📞 *Phone:* ${document.getElementById('phone').value}\n🚙 *Car:* ${document.getElementById('car-model').value}\n🔧 *Service:* Tyre Services\n📝 *Details:* ${document.getElementById('message').value}`;
+            window.open(`https://wa.me/919825505076?text=${encodeURIComponent(msg)}`, '_blank');
+            closeModal();
+        });
+    </script>
+</body>
+
+</html>
